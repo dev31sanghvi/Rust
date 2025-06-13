@@ -151,7 +151,39 @@ fn update_string() {
     let mut s = String::from("Initial string");
     println!("Before update: {}", s);
 
-//updating the string 
+//updating the string
     s.push_str(" and some additional text");
     println!("After update: {}", s);
+}
+
+
+
+// ownership-> set of rules that tells how a rust program manages memory.in rust memory is managed through a system of ownership with a set of rules that the compiuler checks .
+
+
+// scoping variables in the same function
+
+fn main(){
+    let x=1;
+    {
+        let y=5;
+    }
+    print!("{}",y); // this will throws error
+}
+
+
+fn main(){
+    let s1=String::from("Hello, world!");
+    let s2=s1; // this will move the ownership of s1 to s2, so s1 is no longer valid
+print!("{} ", s1); // two things cant point to same things
+}
+
+fn main(){
+    let my_string = String::from("what is up ");
+    takes_ownership(my_string); // moving ownership
+    print!("{}",my_string);
+}
+//=>last option should be cloning
+fn takes_ownership(some_string;String){
+    print!("{}",some_string) // now somestring owns the data
 }
