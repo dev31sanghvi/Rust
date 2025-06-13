@@ -187,3 +187,23 @@ fn main(){
 fn takes_ownership(some_string;String){
     print!("{}",some_string) // now somestring owns the data
 }
+
+//refrences
+
+fn main(){
+    let s1 = String::from("yo yo");
+    let s2=&s1;
+    // let len = calculate_length(&s1); // passing a reference to the function
+    // println!("The length of '{}' is {}.", s1, len);
+    print!("s1: {}, s2: {}", s1, s2);
+}
+
+fn main(){
+    let mut s1:String=String::from("sup");
+    update_word(&mut s1); // passing a mutable reference to the function
+    print("{)",s1);
+}
+
+fn update_word(word: &mut String) {
+    word.push_str(" world");
+}
