@@ -207,3 +207,34 @@ fn main(){
 fn update_word(word: &mut String) {
     word.push_str(" world");
 }
+
+
+fn main() {
+    let mut s1 = String::from("Hello, world!");
+    let s2= &mut s1;
+let s3:&String = &s1; // now this will error as single refrence is allowed , cant have more than one borrower .
+    update_word(word: &mut s1); // passing ref.
+    print!("{}",s1);
+    print!("{}",s2);
+}
+
+fn update_word(word: &mut String) {
+    word.push_str(" world");
+}
+
+
+ struct User {
+    active:bool,
+    username:String,
+    email:String,
+    sign_in_count:u64,
+ }
+ fn main() {
+    let user1 = User {
+        active: true,
+        username: String::from("devsa@gmail.com"),
+        email: String::from("devsa@gmail.com"),
+        sign_in_count: 1,
+    };
+    print!("User 1 username: {:?}", user1.username);
+}
