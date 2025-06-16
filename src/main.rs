@@ -1,3 +1,4 @@
+
 fn main() {
     // println!("Hello, world!");
 let x:i8=10;
@@ -237,4 +238,73 @@ fn update_word(word: &mut String) {
         sign_in_count: 1,
     };
     print!("User 1 username: {:?}", user1.username);
+}
+
+// implementing structs
+//similar to classes in ts
+
+struct Rect {
+    width: u32,
+    height: u32,
+}
+
+impl Rect{
+    // you can attact any kind of funtion to this
+    fn area(&self) -> u32 {
+      return self.width * self.height;
+    }
+    fn perimeter(&self) -> u32 {
+        return 2 * (self.width + self.height);
+    }
+}
+
+}
+fn main() {
+    let rect1 = Rect {
+        width: 30,
+        height: 50,
+    };
+
+print!("area is {:?}", rect);
+}
+
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+let a = Point { x: 1, y: 2 };
+let b = a;
+let c = a.clone();
+
+//pattern matching and stuff
+
+
+enum Shape {
+    Circle(f64),
+    Square(f64),
+    Rectangle(f64, f64),
+}
+
+
+fn calculate_area(shape: Shape) -> f64 {
+    let ans: f64 =match shape{
+  Shaoe::Circle(radius) => std::f64::consts::3.14 * radius * radius,
+        // Shape::Square(side) => side * side,
+        Shape::Rectangle(width, height) => width * height,
+    };
+    // Shape::Square(side) => side * side
+    return  ans;
+}
+
+fn main() {
+
+    let circle = Shape::Circle(5.0);
+    let square = Shape::Square(4.0);
+    let rectangle = Shape::Rectangle(3.0, 6.0);
+
+ 
+    println!("Area of circle: {}", calculate_area(circle));
+    println!("Area of square: {}", calculate_area(square));
+    println!("Area of rectangle: {}", calculate_area(rectangle));
 }
