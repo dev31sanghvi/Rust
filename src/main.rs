@@ -303,8 +303,30 @@ fn main() {
     let square = Shape::Square(4.0);
     let rectangle = Shape::Rectangle(3.0, 6.0);
 
- 
+
     println!("Area of circle: {}", calculate_area(circle));
     println!("Area of square: {}", calculate_area(square));
     println!("Area of rectangle: {}", calculate_area(rectangle));
+}
+
+//error handling
+//enum with generic types(can be any capital letter )
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+
+use std::fs;
+
+fn main() {
+    let greeting_file_result = fs::read_to_string("hello.txt");
+
+    match greeting_file_result {
+        Ok(file_content) => {
+            println!("File read successfully: {:?}", file_content);
+        },
+        Err(error) => {
+            println!("Failed to read file: {:?}", error);
+        }
+    }
 }
